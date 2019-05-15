@@ -31,7 +31,8 @@ export default class ToDoEditor extends Component {
         title: editedTodo.title,
         location: editedTodo.location,
         due: editedTodo.due,
-        tasks: editedTodo.tasks
+        tasks: editedTodo.tasks,
+        share: editedTodo.share
       }
     }
   }
@@ -92,6 +93,7 @@ export default class ToDoEditor extends Component {
       updatedTodo.location = this.state.location;
       updatedTodo.due = this.state.due;
       updatedTodo.tasks = this.state.tasks;
+      updatedTodo.share = this.state.share;
     } else {
       const length = updatedTodos.length;
 

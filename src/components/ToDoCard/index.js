@@ -9,11 +9,20 @@ export default class ToDoCard extends Component {
     super(props);
     
     this.state = {
-      share: []
+      name: ''
     }
   }
+  
+  _onAdd = () => {
+    const {onAddShare} = this.props
+    onAddShare(this.props.value.id, this.state.name)
+    console.log('value Card:')
+    console.log(this.props.value.id)
+  }
 
-
+  _onChanges = (value) => {
+    this.setState ({name: value})
+  }
 
   render = () => {
     return (
@@ -37,7 +46,6 @@ export default class ToDoCard extends Component {
 
         <Divider/>
         <Subtitle>{this.props.value.subtitle}</Subtitle>
-
         {
           this.props.value.tasks.map(task => <TaskRow
           key={task.id}
@@ -50,17 +58,16 @@ export default class ToDoCard extends Component {
             <Subtitle> Share with </Subtitle>
           <Boxxes>
             <InputShare
-            onClick = {this.props._onClick(this.props.value.id, "test")}
+            Changes = {this._onChanges}
+            onClicks = {this._onAdd}
+            test = {this.props.value.id}
             />
           {
-            this.props.value.share ?
-            
             this.props.value.share.map(share => <Names
             key = {share.id}
             contex = {share.name}
-            onClick = {() => this.props._onDeleteShare(this.props.value.id, share.id)}
-            />) :
-            <Content> No Share </Content>
+            Callback = {this._onClick}
+            />)
           }
           </Boxxes>
 

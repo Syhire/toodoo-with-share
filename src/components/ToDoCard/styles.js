@@ -61,3 +61,12 @@ export const Boxxes = styled.div`
   flex-direction: row;
   align-items: center;
 `;
+
+export const Button = styled.div`
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  color: gray;
+  font-size: 24px;
+  margin-left: 8px;
+`;
