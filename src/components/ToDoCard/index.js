@@ -18,6 +18,8 @@ export default class ToDoCard extends Component {
     onAddShare(this.props.value.id, this.state.name)
     console.log('value Card:')
     console.log(this.props.value.id)
+
+    this.setState({name : ""})
   }
 
   _onChanges = (value) => {
@@ -56,19 +58,22 @@ export default class ToDoCard extends Component {
 
         <Divider/>
             <Subtitle> Share with </Subtitle>
-          <Boxxes>
+
             <InputShare
             Changes = {this._onChanges}
             onClicks = {this._onAdd}
             test = {this.props.value.id}
+            val = {this.state.name}
             />
-          {
-            this.props.value.share.map(share => <Names
-            key = {share.id}
-            contex = {share.name}
-            Callback = {this._onClick}
-            />)
-          }
+          <Boxxes>
+            {
+              this.props.value.share.map(share => <Names
+              key = {share.id}
+              contex = {share.name}
+              onClick = {() => this.props._onDeleteShare(this.props.value.id, share.id)}
+              Callback = {this._onClick}
+              />)
+            }
           </Boxxes>
 
       </Wrapper>

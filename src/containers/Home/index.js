@@ -26,14 +26,7 @@ const dummyData = [{
   }, {
     id: '2',
     name: "1819*****@smak1bpk.penabur.sch.id",
-  }, {
-    id: '3',
-    name: "1819*****@smak1bpk.penabur.sch.id",
-  }, {
-    id: '4',
-    name: "1819*****@smak1bpk.penabur.sch.id",
   }]
-
 }];
 
 export default class Home extends Component {
@@ -115,16 +108,26 @@ export default class Home extends Component {
       this.setState({ todos: tempTodo });
     }
   }
-  //lu gk bisa pindah file ?
-  _onAddShare = (idss, value) => {
-    const temp = this.state.todos[idss].share;
-    const length = this.state.todos[idss].share.length;
 
+  _onAddShare = (idss, value) => {
+    if (value) {
+    const temp = [...this.state.todos];
+    const index = temp.findIndex(t => t.id === idss)
+    console.log(index)
+    if (index < 0) return;
+    const length = temp[index].share.length
+    const temps = temp[index].share
     let id = 1;
-    if (length > 0) id = (Number(this.state.todos[idss].share[length - 1].id) + 1).toString();
-    temp.push({ id:id, name: value});
+    if (length > 0) id = (Number(temps[length - 1].id) + 1).toString();
+    temp[index].share.push({ 
+      id:id,
+      name: value
+    });
     
     this.setState({ share: temp });
+    } else {
+      alert('Insert Email First')
+    }
   }
   
   render = () => {

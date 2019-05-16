@@ -16,6 +16,7 @@ export default class InputShare extends Component {
             <Wrapper>
                 <Input
                 onChange = {(e) => this._onChange(e.target.value)}
+                value = {this.props.val}
                 />
 
                 <Button

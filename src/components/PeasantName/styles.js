@@ -46,7 +46,8 @@ export const Texts = styled.div`
 `;
 
 export const Box = styled.div`
-    margin: 8px;
+    margin-right: 8px;
+    margin-top: 8px;
     padding: 8px;
     border-radius: 8px;
     background-color: lightgray;

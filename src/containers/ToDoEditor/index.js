@@ -19,6 +19,7 @@ export default class ToDoEditor extends Component {
       location: '',
       due: '',
       tasks: [],
+      share: []
     }
 
     if (props.location.state

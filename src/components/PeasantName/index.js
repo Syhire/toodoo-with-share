@@ -12,7 +12,9 @@ export default class Names extends Component {
                         {this.props.contex}
                         </Texts>
 
-                        <Circle2 onClick = {this.props.onClick}> <i class="fas fa-times-circle"></i> </Circle2>
+                        <Circle2 onClick = {this.props.onClick}>
+                        <i class="fas fa-times-circle"></i> 
+                        </Circle2>
                     </Box>
             </Wrapper>
         );

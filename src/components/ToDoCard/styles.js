@@ -60,6 +60,7 @@ export const Boxxes = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 export const Button = styled.div`
